@@ -29,12 +29,12 @@ jobs:
     - name: Build
       run: npm run build
 
-    - name: Zip dist folder
-      run: zip -r dist.zip dist/
+    - name: Create tar.gz of dist folder
+      run: tar -czf dist.tar.gz dist/
 
     - name: Upload Release Asset
       uses: softprops/action-gh-release@v1
       with:
-        files: dist.zip
+        files: dist.tar.gz
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
