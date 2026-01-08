@@ -24,12 +24,12 @@ jobs:
     - name: Build
       run: npm run build
 
-    - name: Zip build folder
-      run: zip -r build.zip build/
+    - name: Zip dist folder
+      run: zip -r dist.zip dist/
 
     - name: Upload Release Asset
       uses: softprops/action-gh-release@v1
       with:
-        files: build.zip
+        files: dist.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
