@@ -1,12 +1,17 @@
 name: Build and Release
 
 on:
+  push:
+    tags:
+      - 'v*'
   release:
     types: [published]
 
 jobs:
   build-and-upload:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
     - name: Checkout code
